@@ -91,7 +91,7 @@ public class Calculator {
         if(in2Double == 0) {
             return "DNE";
         } else {
-            Double doubleResult = in1Double * in2Double;
+            Double doubleResult = in1Double / in2Double;
             return stringFormat.format(doubleResult);
         }
     }
