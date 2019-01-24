@@ -10,94 +10,85 @@ public class Calculator {
 
 //    private String currentTotal;
 //    private String finalTotal;
-    private Stack<Double> numberStack;
-    private Stack<String> operatorStack;
+
+    private Double currentValue;
+    private String lastOperand;
     NumberFormat stringFormat = new DecimalFormat("#.####");
 
-
-
     public Calculator() {
-        numberStack = new Stack<>();
-        operatorStack = new Stack<>();
-    }
 
-    public void numberStack(String inputNumber) {
-        double number = Double.parseDouble(inputNumber);
-        numberStack.push(number);
-    }
-
-    public void operationStack(String operator) {
-        operatorStack.push(operator);
-    }
-
-    public String addOperation(String input) {
-        String result = "";
-        //TODO
-        return result;
     }
 
     public String addOperation(String input1, String input2) {
         Double in1Double = Double.parseDouble(input1);
         Double in2Double = Double.parseDouble(input2);
 
-        Double doubleResult = in1Double + in2Double;
+        currentValue = in1Double + in2Double;
+        lastOperand = "+";
 
-        return stringFormat.format(doubleResult);
-    }
-
-    public String subtractOperation(String input) {
-        String result = "";
-        //TODO
-
-        return result;
+        return stringFormat.format(currentValue);
     }
 
     public String subtractOperation(String input1, String input2) {
-
-
         Double in1Double = Double.parseDouble(input1);
         Double in2Double = Double.parseDouble(input2);
 
-        Double doubleResult = in1Double - in2Double;
+        currentValue = in1Double - in2Double;
+        lastOperand = "-";
 
-        return stringFormat.format(doubleResult);
+        return stringFormat.format(currentValue);
     }
 
-    public String multiplyOperation(String input) {
-        String result = "";
-        //TODO
-        return result;
-    }
 
     public String multiplyOperation(String input1, String input2) {
         Double in1Double = Double.parseDouble(input1);
         Double in2Double = Double.parseDouble(input2);
 
-        Double doubleResult = in1Double * in2Double;
+        currentValue = in1Double * in2Double;
+        lastOperand = "*";
 
-        return stringFormat.format(doubleResult);
+        return stringFormat.format(currentValue);
     }
 
-    public String divideOperation(String input) {
-        String result = "";
-        //TODO Something
-        return result;
-    }
 
     public String divideOperation(String input1, String input2) {
         Double in1Double = Double.parseDouble(input1);
         Double in2Double = Double.parseDouble(input2);
 
         if(in2Double == 0) {
+            currentValue = 0.0;
             return "DNE";
         } else {
-            Double doubleResult = in1Double / in2Double;
-            return stringFormat.format(doubleResult);
+            lastOperand = "-";
+            currentValue = in1Double / in2Double;
+            return stringFormat.format(currentValue);
         }
     }
 
+    public String equalsOperation() {
 
+        switch (lastOperand) {
+            case "+":
+                //Do a thing
+                break;
+            case "-":
+                //Do a thing
+                break;
+            case "*":
+                //Do a thing
+                break;
+            case "/":
+                //Do a thing
+                break;
+            default:
+                //HOW?!
+                break;
+        }
+        return stringFormat.format(currentValue);
 
+    }
 
-
+    public String getCurrentValue() {
+        return stringFormat.format(currentValue);
+    }
 }
