@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private TextView result, newNumber;
 
-    private String val1, val2;
+    private String val1, val2, operand;
 
 
     @Override
@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         val1 = null;
         val2 = null;
+        operand = null;
 
 
 
@@ -58,5 +59,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         String number = (((Button) v).getText()).toString();
+        newNumber.append(number);
+
     }
 }
